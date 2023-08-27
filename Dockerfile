@@ -4,9 +4,8 @@ FROM openjdk:8-jdk-alpine
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the compiled JAR and the pom.xml to the container
-COPY target/MyMavenApp-1.0-SNAPSHOT.jar .
-COPY pom.xml .
+# Copy the JAR file from the host into the container
+COPY /var/lib/jenkins/workspace/New-build-app/target/MyMavenApp-1.0-SNAPSHOT.jar .
 
 # Run the JAR file
 CMD ["java", "-jar", "MyMavenApp-1.0-SNAPSHOT.jar"]
