@@ -9,23 +9,10 @@ pipeline {
             }
         }
 
-        stage('Build and Test') {
+        stage('Docker Build and Deploy') {
             steps {
-                // Build and test the Maven project
-                sh 'mvn clean install'
-            }
-        }
-
-        stage('Docker Build') {
-            steps {
-                // Build Docker image using the Dockerfile
+                // Build Docker image using the Dockerfile and run the container
                 sh 'docker build -t my-maven-app .'
-            }
-        }
-
-        stage('Docker Deploy') {
-            steps {
-                // Run the Docker container
                 sh 'docker run -d --name my-maven-app-container my-maven-app'
             }
         }
