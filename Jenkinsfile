@@ -12,7 +12,7 @@ pipeline {
         stage('Docker Build and Deploy') {
             steps {
                 // Build Docker image using the Dockerfile and run the container
-                sh 'docker build -t my-maven-app .'
+                sh 'docker build -t my-maven-app -f MyMavenaApp/Dockerfile .'
                 sh 'docker run -d --name my-maven-app-container my-maven-app'
             }
         }
