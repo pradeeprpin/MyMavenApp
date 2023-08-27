@@ -18,11 +18,5 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // Cleanup: Stop and remove the Docker container
-            sh 'docker stop my-maven-app-container'
-            sh 'docker rm my-maven-app-container'
-        }
-    }
+    
 }
